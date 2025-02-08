@@ -1,3 +1,17 @@
+#!/bin/bash
+# Função para exibir o menu interativo de seleção
+select_option() {
+    options=("Prd" "Hml" "Dev")
+    PS3="Selecione o ambiente (1-3): "
+    select opt in "${options[@]}"; do
+        if [[ -n "$opt" ]]; then
+            echo "$opt"
+            return
+        else
+            echo "Opção inválida, tente novamente."
+        fi
+    done
+}
 while true; do
     # 🔄 Resetando variáveis a cada nova iteração
     unset RESOURCE_ARN ENVIRONMENT PROJECT APPLICATION HOSTNAME
